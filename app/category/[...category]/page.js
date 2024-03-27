@@ -26,7 +26,7 @@ export default function category({params}) {
           </div>
           <div className="sticky top-0 right-0 w-full lg:w-10/12 grid grid-cols-2 gap-4 lg:grid-cols-3 my-4 lg:my-10">
           {filter_products.map((product) => (
-              <div>
+              <div key={product.id}>
                 <div className="relative delay-150 w-180px lg:w-full h-[205px] lg:h-[310px] bg-[#f8f8f8] transition-all duration-3000 ease-in-out transform">
                   <Image
                     src={product.thumbnail}
