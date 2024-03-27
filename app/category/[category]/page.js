@@ -3,11 +3,19 @@ import Hero from "@/components/Hero";
 import Image from "next/image";
 import products from "@/app/data/products";
 import Link from "next/link";
-export default function category({params}) {
+import { discount_price } from "@/utils/DiscountPrice";
+
+
+export default function Category({params}) {
+  const { category } = params;
   const categories = Array.from(
     new Set(products.map((product) => product.category))
   );
-  const filter_products = products.filter(product => product.category === params)
+  
+  const filter_products = products.filter(product => product.category === category);
+  
+  
+    console.log('test',category)
   return (
     <>
       <Hero />
@@ -15,8 +23,13 @@ export default function category({params}) {
         {/* Product section start */}
         <section className="w-11/12 lg:w-10/12 max-w-7xl mx-auto py-0 lg:py-10 lg:flex justify-between items-start">
           <div className="w-full flex items-center justify-between lg:block lg:w-2/12 my-10 lg:my-0 lg:mt-4">
-            {categories.map((name) => (
+          <Link
+                href="/category"
+                className="hover:border-b border-black block h-6 box-border mt-5"
+              > All </Link>
+            {categories.map((name, index) => ( // Adding index as second argument
               <Link
+                key={index} // Using index as key
                 href={`/category/${name}`}
                 className="hover:border-b border-black block h-6 box-border mt-5"
               >
@@ -25,8 +38,8 @@ export default function category({params}) {
             ))}
           </div>
           <div className="sticky top-0 right-0 w-full lg:w-10/12 grid grid-cols-2 gap-4 lg:grid-cols-3 my-4 lg:my-10">
-          {filter_products.map((product) => (
-              <div key={product.id}>
+            {filter_products.map((product) => (
+              <div key={product.id}> {/* Assigning key to the outermost div */}
                 <div className="relative delay-150 w-180px lg:w-full h-[205px] lg:h-[310px] bg-[#f8f8f8] transition-all duration-3000 ease-in-out transform">
                   <Image
                     src={product.thumbnail}
@@ -53,7 +66,6 @@ export default function category({params}) {
                 </p>
               </div>
             ))}
-            {/* Repeat the same structure for other products */}
           </div>
         </section>
         {/* Product section end */}
