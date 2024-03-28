@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function SingleProduct() {
   return (
     <>
@@ -6,29 +8,29 @@ export default function SingleProduct() {
           <div className="w-11/12 lg:w-8/12 max-w-7xl mx-auto flex flex-col gap-12 lg:flex-row items-center justify-between">
             <div className="w-full lg:w-7/12 border border-slate-500/20 p-4">
               <img
-                src="./assets/products/iphone.jpg"
+                src="/products/iphone.jpg"
                 className="w-[400px] h-[500px] mx-auto object-cover"
                 alt=""
               />
 
               <div className="flex gap-4 mt-4">
                 <img
-                  src="./assets/products/iphone.jpg"
+                  src="/products/iphone.jpg"
                   className="w-[100px] h-[100px] mx-auto border object-cover"
                   alt=""
                 />
                 <img
-                  src="./assets/products/iphone-2.jpg"
+                  src="/products/iphone-2.jpg"
                   className="w-[100px] h-[100px] mx-auto border object-cover"
                   alt=""
                 />
                 <img
-                  src="./assets/products/iphone-3.jpg"
+                  src="/products/iphone-3.jpg"
                   className="w-[100px] h-[100px] mx-auto border object-cover"
                   alt=""
                 />
                 <img
-                  src="./assets/products/iphone-4.jpg"
+                  src="/products/iphone-4.jpg"
                   className="w-[100px] h-[100px] mx-auto border object-cover"
                   alt=""
                 />
@@ -40,11 +42,11 @@ export default function SingleProduct() {
               </h1>
               <span className="text-[#919090] my-3">Smartphone</span>
               <div className="mt-3 flex items-center justify-start gap-1">
-                <img src="./assets/svg/star.svg" width="20px" alt="" />
-                <img src="./assets/svg/star.svg" width="20px" alt="" />
-                <img src="./assets/svg/star.svg" width="20px" alt="" />
-                <img src="./assets/svg/star.svg" width="20px" alt="" />
-                <img src="./assets/svg/star.svg" width="20px" alt="" />
+                <img src="/svg/star.svg" width="20px" alt="" />
+                <img src="/svg/star.svg" width="20px" alt="" />
+                <img src="/svg/star.svg" width="20px" alt="" />
+                <img src="/svg/star.svg" width="20px" alt="" />
+                <img src="/svg/star.svg" width="20px" alt="" />
               </div>
               <hr className="my-5 bg-black" />
 
