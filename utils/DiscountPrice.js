@@ -5,10 +5,10 @@ const discount_price = function discountPrice(originalPrice, discountPercentage)
     // Calculate the discounted price
     const discountedPrice = originalPrice - discountAmount;
     
+    // Return the discounted price with two decimal places
+    return discountedPrice.toFixed(2);
+}
 
-    // Return the discounted price
-    return discountedPrice;
-  }
 
   export {discount_price}
   

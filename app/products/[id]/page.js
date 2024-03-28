@@ -1,6 +1,7 @@
 import products from "@/app/data/products";
 import { discount_price } from "@/utils/DiscountPrice";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function SingleProduct({ params }) {
   const { id } = params;
@@ -13,9 +14,11 @@ export default function SingleProduct({ params }) {
         <div className="w-11/12 lg:w-8/12 max-w-7xl mx-auto flex flex-col gap-12 lg:flex-row items-center justify-between">
           <div className="w-full lg:w-7/12 border border-slate-500/20 p-4">
             <Image
-              src={product.thumbnail}
+              src={`${product.thumbnail}`}
               className="w-[400px] h-[500px] mx-auto object-cover"
               alt=""
+              width="400"
+              height="500"
             />
 
             <div className="flex gap-4 mt-4">
@@ -25,6 +28,8 @@ export default function SingleProduct({ params }) {
                   src={image}
                   className="w-[100px] h-[100px] mx-auto border object-cover"
                   alt=""
+                  width="100"
+                  height="100"
                 />
               ))}
             </div>
@@ -33,13 +38,13 @@ export default function SingleProduct({ params }) {
             <h1 className="italic text-xl lg:text-3xl font-serif font-semibold">
               {product.title}
             </h1>
-            <span className="text-[#919090] my-3">{product.category}</span>
+            <Link href={`/category/${product.category}`} className="text-[#919090] my-3">{product.category}</Link>
             <div className="mt-3 flex items-center justify-start gap-1">
-              <Image src="/svg/star.svg" width="20px" alt="" />
-              <Image src="/svg/star.svg" width="20px" alt="" />
-              <Image src="/svg/star.svg" width="20px" alt="" />
-              <Image src="/svg/star.svg" width="20px" alt="" />
-              <Image src="/svg/star.svg" width="20px" alt="" />
+              <Image src="/svg/star.svg" width="20" height="20" alt="" />
+              <Image src="/svg/star.svg" width="20" height="20" alt="" />
+              <Image src="/svg/star.svg" width="20" height="20" alt="" />
+              <Image src="/svg/star.svg" width="20" height="20" alt="" />
+              <Image src="/svg/star.svg" width="20" height="20" alt="" />
             </div>
             <hr className="my-5 bg-black" />
 
@@ -48,7 +53,7 @@ export default function SingleProduct({ params }) {
                 <span className="text-rose-600 opacity-60 line-through">
                   ${product.price}
                 </span>
-                <span className="font-bold text-2xl">$195.00</span>
+                <span className="font-bold text-2xl">${discount_price(product.price, product.discountPercentage)}</span>
               </p>
             </div>
             <div>

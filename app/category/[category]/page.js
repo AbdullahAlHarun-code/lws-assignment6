@@ -4,6 +4,7 @@ import Image from "next/image";
 import products from "@/app/data/products";
 import Link from "next/link";
 import { discount_price } from "@/utils/DiscountPrice";
+import { useNavigation } from 'next/navigation';
 
 
 export default function Category({params}) {
@@ -14,8 +15,8 @@ export default function Category({params}) {
   
   const filter_products = products.filter(product => product.category === category);
   
-  
-    console.log('test',category)
+  const navigation = useNavigation();
+  console.log('test',navigation.pathname)
   return (
     <>
       <Hero />
@@ -50,11 +51,11 @@ export default function Category({params}) {
                   />
                 </div>
                 <h2 className="text-sm lg:text-base mt-2">
-                  <a className="text-base font-bold" href={`/products/${product.id}`}>
+                  <Link className="text-base font-bold" href={`/products/${product.id}`}>
                   {product.title}
-                  </a>
+                  </Link>
                   <span className="text-[#919090]">
-                    <a href={`/category/${product.category}`}>({product.category})</a>
+                    <Link href={`/category/${product.category}`}>({product.category})</Link>
                   </span>
                 </h2>
                 <p className="text-[#919090] text-sm ">
