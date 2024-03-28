@@ -7,6 +7,7 @@ const Hero = () => {
       <Image
         src="/header.webp"
         alt="Header Image"
+        style={{zIndex:"-1"}}
         layout="fill"
         objectFit="cover"
         quality={100}
