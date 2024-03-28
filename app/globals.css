@@ -704,7 +704,9 @@ video {
 .w-\[400px\] {
   width: 400px;
 }
-
+.active{
+  border-bottom-width: 1px;
+}
 .w-full {
   width: 100%;
 }
