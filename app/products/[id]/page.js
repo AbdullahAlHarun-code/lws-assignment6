@@ -1,5 +1,7 @@
 import products from "@/app/data/products";
 import { discount_price } from "@/utils/DiscountPrice";
+import Image from "next/image";
+
 export default function SingleProduct({ params }) {
   const { id } = params;
   const product = products.find((product) => product.id.toString() === id);
@@ -10,15 +12,16 @@ export default function SingleProduct({ params }) {
       <section className="bg-[#fafaf2] h-full py-20">
         <div className="w-11/12 lg:w-8/12 max-w-7xl mx-auto flex flex-col gap-12 lg:flex-row items-center justify-between">
           <div className="w-full lg:w-7/12 border border-slate-500/20 p-4">
-            <img
+            <Image
               src={product.thumbnail}
               className="w-[400px] h-[500px] mx-auto object-cover"
               alt=""
             />
 
             <div className="flex gap-4 mt-4">
-              {product.images.map((image) => (
-                <img
+              {product.images.map((image,index) => (
+                <Image
+                  key={index}
                   src={image}
                   className="w-[100px] h-[100px] mx-auto border object-cover"
                   alt=""
@@ -32,11 +35,11 @@ export default function SingleProduct({ params }) {
             </h1>
             <span className="text-[#919090] my-3">{product.category}</span>
             <div className="mt-3 flex items-center justify-start gap-1">
-              <img src="/svg/star.svg" width="20px" alt="" />
-              <img src="/svg/star.svg" width="20px" alt="" />
-              <img src="/svg/star.svg" width="20px" alt="" />
-              <img src="/svg/star.svg" width="20px" alt="" />
-              <img src="/svg/star.svg" width="20px" alt="" />
+              <Image src="/svg/star.svg" width="20px" alt="" />
+              <Image src="/svg/star.svg" width="20px" alt="" />
+              <Image src="/svg/star.svg" width="20px" alt="" />
+              <Image src="/svg/star.svg" width="20px" alt="" />
+              <Image src="/svg/star.svg" width="20px" alt="" />
             </div>
             <hr className="my-5 bg-black" />
 
